@@ -1,13 +1,10 @@
-// import userController from "../controller/user/userController.js";
-// import express from "express";
-
 const userController = require("../controller/user/userController.js");
 const express = require("express");
 
 const router = express.Router();
 // const User = require("../models/User");
 
-router.get("/user/:id", userController);
+router.get("/user", userController);
 
 module.exports = router;
 
