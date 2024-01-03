@@ -1,10 +1,11 @@
 const userController = require("../controller/user/userController.js");
 const express = require("express");
-
 const router = express.Router();
-// const User = require("../models/User");
 
-router.get("/user", userController);
+router.get("/user", (req, res) => {
+  res.send("@@ 유저 페이지");
+  //   res.send(userController());
+});
 
 module.exports = router;
 
