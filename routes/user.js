@@ -61,7 +61,7 @@ module.exports = router;
 
 // })
 
-// ddfdd.save((err, data) {
+// dded.save((err, data) {
 //     if(err) {
 //         return res.send({message: '저장중 에러요.'})
 //     } else {

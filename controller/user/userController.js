@@ -12,8 +12,31 @@ const userController = async (req, res) => {
       res.status(200).send(`find successfully: ${user}`);
     })
     .catch((err) => res.status(500).send(err));
-
-  // res.send("@@ 유저 페이지");
 };
+
+// const getUser = await UserModel.create({
+//   userName: userName,
+//   userId: userId,
+//   birthDay: birthDay,
+//   email: email,
+//   password: password,
+//   phoneNumber: phoneNumber,
+// })
+//   .then((newUser) => {
+//     if (newUser) {
+//       res.status(200).send({
+//         message: "ok",
+//         resultCode: 200,
+//         data: newUser,
+//       });
+//     }
+//   })
+//   .catch((err) => {
+//     res.status(401).send({
+//       message: err,
+//       resultCode: 401,
+//       data: null,
+//     });
+//   });
 
 module.exports = userController;
