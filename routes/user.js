@@ -1,11 +1,16 @@
 const userController = require("../controller/user/userController.js");
+const userRegisterController = require("../controller/user/userRegisterController.js");
 const express = require("express");
 const router = express.Router();
 
-router.get("/user", (req, res) => {
-  res.send("@@ 유저 페이지");
-  //   res.send(userController());
-});
+router.get("/user", userController);
+router.post("/user", userRegisterController);
+// router.get("/cart", userController);
+// router.get("/test", testController);
+// => {
+
+//   res.send("@@ 카트 페이지");
+// });
 
 module.exports = router;
 

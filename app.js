@@ -4,33 +4,27 @@ const mongoUri = process.env.MONGO_URI;
 const Port = process.env.PORT;
 
 const fs = require("fs");
+const http = require("http");
 const express = require("express");
 const app = express();
-const http = require("http");
 
 const { urlencoded, json } = require("express");
 const { connect } = require("mongoose");
-const userRouter = require("./routes/user.js");
-var router = express.Router();
+const router = require("./routes/user.js");
 
 app.use(urlencoded({ extended: true }));
 app.use(json());
+app.use(express.static("public"));
+
+app.use("/", router);
 
 // app.use("/", (req, res) => {
-//   res.sendFile(__dirname + "../practice/src/app/layout/");
+//   res.sendFile(__dirname + "/~~~");
 // });
 
-// app.use("/script", express / static(__dirname + "/script"));
-
-app.use("/", userRouter);
-
-// app.use("/user", (req, res) => {
-//   res.send("@@ 유저 페이지");
+// app.use("/cart", (req, res) => {
+//   res.send("@@ 카트 페이지~!");
 // });
-
-app.use("/cart", (req, res) => {
-  res.send("@@ 카트 페이지");
-});
 
 connect(mongoUri, {
   useNewUrlParser: true,
