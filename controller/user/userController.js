@@ -1,6 +1,8 @@
 const UserModel = require("../../models/userModel");
 
 const userController = async (req, res) => {
+  console.log("req ===========>", req);
+
   await UserModel.find()
     .then((user) => {
       console.log("user", user);

@@ -7,7 +7,9 @@ const fs = require("fs");
 const http = require("http");
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
+app.use(cors());
 const { urlencoded, json } = require("express");
 const { connect } = require("mongoose");
 const router = require("./routes/user.js");
