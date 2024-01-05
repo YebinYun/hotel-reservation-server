@@ -12,6 +12,12 @@ const userSchema = new mongoose.Schema(
     birthDay: { type: Date },
     phoneNumber: { type: String },
     email: { type: String },
+    likes: [
+      {
+        type: mongoose.Types.ObjectId, // hotel objectId
+        ref: "Like",
+      },
+    ],
   },
   {
     timestamps: true,

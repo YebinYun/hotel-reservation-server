@@ -3,30 +3,19 @@ require("dotenv").config();
 const mongoUri = process.env.MONGO_URI;
 const Port = process.env.PORT;
 
-const fs = require("fs");
-const http = require("http");
+const cors = require("cors");
 const express = require("express");
 const app = express();
-const cors = require("cors");
 
-app.use(cors());
 const { urlencoded, json } = require("express");
 const { connect } = require("mongoose");
-const router = require("./routes/user.js");
+const router = require("./routes/route.js");
 
 app.use(urlencoded({ extended: true }));
 app.use(json());
 app.use(express.static("public"));
-
+app.use(cors());
 app.use("/", router);
-
-// app.use("/", (req, res) => {
-//   res.sendFile(__dirname + "/~~~");
-// });
-
-// app.use("/cart", (req, res) => {
-//   res.send("@@ 카트 페이지~!");
-// });
 
 connect(mongoUri, {
   useNewUrlParser: true,
