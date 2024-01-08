@@ -1,0 +1,37 @@
+[
+  {
+    "idx": 1,
+    "hotelID": "a1",
+    "photo_url": ""
+  },
+  {
+    "idx": 2,
+    "hotelID": "a2",
+    "photo_url": ""
+  },
+  {
+    "idx": 3,
+    "hotelID": "a3",
+    "photo_url": ""
+  },
+  {
+    "idx": 4,
+    "hotelID": "a4",
+    "photo_url": ""
+  },
+  {
+    "idx": 5,
+    "hotelID": "a5",
+    "photo_url": ""
+  },
+  {
+    "idx": 6,
+    "hotelID": "a6",
+    "photo_url": ""
+  },
+  {
+    "idx": 7,
+    "hotelID": "a7",
+    "photo_url": ""
+  }
+]
