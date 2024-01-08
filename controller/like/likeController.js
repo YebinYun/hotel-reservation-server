@@ -5,8 +5,6 @@ const LikeController = async (req, res) => {
   const { userId } = req.query;
 
   const userData = await userModel.findOne({ _id: userId });
-  console.log("userData ===> ", userId); // 유저아이디
-  console.log("likes ===> ", userData.likes); // 유저아이디
 
   if (!userData) return res.status(404).json({ message: "no user" });
 
