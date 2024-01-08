@@ -1,36 +1,34 @@
-const LikeModel = require("../../models/likeModel");
 const userModel = require("../../models/userModel");
+const hotelList = require("../../controller/like/hotelList.json"); // 경로는 실제 경로로 수정해주세요
 
 const LikeController = async (req, res) => {
-  const { userId } = req.query;
-
+  const { userId, likeHotelId } = req.query;
   const userData = await userModel.findOne({ _id: userId });
 
-  if (!userData) return res.status(404).json({ message: "no user" });
+  if (!userData) return res.status(404).json({ message: "No user" });
+
+  const selectedHotel = hotelList.find((hotel) => hotel.hotelID === likeHotelId);
+
+  if (!selectedHotel) return res.status(404).json({ message: "No hotel found" });
 
   try {
-    if (userData.likes.includes("a1")) {
-      const index = userData.likes.indexOf("a1");
-      userData.splice(index, 1);
-      userData.save().then().catch();
+    if (userData.likes.includes(likeHotelId)) {
+      const index = userData.likes.indexOf(likeHotelId);
+      userData.likes.splice(index, 1);
     } else {
-      userData.likes.push();
-      userData.save().then().catch();
+      userData.likes.push(likeHotelId);
     }
-  } catch (error) {}
 
-  await userModel
-    .findOne({ _id: userId })
-    .then(() => {
-      res.setHeader("Access-Control-Allow-origin", "*");
-      res.setHeader("Access-Control-Allow-Credentials", "true");
+    await userData.save();
+  } catch (error) {
+    console.error("Error in LikeController:", error);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
 
-      res.status(200).send(`find successfully: ${userId}`);
-    })
-    .catch((err) => {
-      res.status(500).send(err);
-      console.log("@@err =====> ", err);
-    });
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+
+  res.status(200).json({ message: `Successfully updated likes for user: ${userId}` });
 };
 
 module.exports = LikeController;
