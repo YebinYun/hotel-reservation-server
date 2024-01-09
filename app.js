@@ -52,6 +52,13 @@ app.get("/auth", (req, res, next) => {
   res.json({ session: req.session });
 });
 
+// app.use((req, res, next) => {
+//   req.user = {
+//     id: "1234",
+//   };
+//   next();
+// });
+
 //비밀번호를 확인하여 세션 정보 저장
 // if (await check_password(result, password)) {
 //   // 세션 저장
