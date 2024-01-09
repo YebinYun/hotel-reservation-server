@@ -1,7 +1,7 @@
 const userModel = require("../../models/userModel");
 const bcrypt = require("bcrypt");
 
-const loginController = async (req, res) => {
+const authController = async (req, res) => {
   const { userId, password } = req.body;
 
   const existing = await userModel.findOne({
@@ -27,4 +27,4 @@ const loginController = async (req, res) => {
   }
 };
 
-module.exports = loginController;
+module.exports = authController;
