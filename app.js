@@ -44,9 +44,19 @@ app.use(
   })
 );
 
-app.get("/", (req, res, next) => {
+app.get("/auth", (req, res, next) => {
   // 세션에 데이터를 설정하면, 모든 세션이 설정되는게아니라, 요청 받은 고유의 세션 사용자의 값만 설정 된다.
   // 즉, 개인의 저장 공간이 생긴 것과 같다.
   req.session.id = "hello";
-  res.json({ id: req.session.id });
+  // res.json({ id: req.session.id });
+  res.json({ session: req.session });
 });
+
+//비밀번호를 확인하여 세션 정보 저장
+// if (await check_password(result, password)) {
+//   // 세션 저장
+//   req.session.user = {
+//     userId: userId,
+//     userName: userName,
+//   };
+// }
