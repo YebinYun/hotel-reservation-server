@@ -1,19 +1,32 @@
-const userModel = require("../../models/userModel");
+const LikeModel = require("../../models/likeModel");
 const axios = require("axios");
 
 const userLikeController = async (req, res) => {
   const { hotelId, userId } = req.body;
 
-  console.log(userId);
-  console.log(hotelId);
+  axios.get(`/likes?userId=${userId}&hotelId=${hotelId}`);
 
-  axios
-    .get(`/likes?userId=${userId}&hotelId=${hotelId}`)
-    .then(function (res) {
-      console.log(res);
+  LikeModel.create({
+    hotelId: hotelId,
+    userId: userId,
+  })
+
+    .then((res) => {
+      if (res) {
+        console.log("res", res);
+        return res.status(200).send({
+          message: "좋아요 클릭 성공",
+          resultCode: 200,
+          data: res,
+        });
+      }
     })
-    .catch(function (err) {
-      console.log(err);
+    .catch((err) => {
+      return res.status(200).send({
+        message: "좋아요 실패.",
+        resultCode: 9999,
+        data: err,
+      });
     });
 };
 

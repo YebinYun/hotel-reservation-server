@@ -14,7 +14,8 @@ const userSchema = new mongoose.Schema(
     email: { type: String },
     likes: [
       {
-        type: mongoose.Types.ObjectId, // hotel objectId
+        type: String, // hotel objectId
+        // type: mongoose.Types.ObjectId, // hotel objectId
         ref: "Like",
       },
     ],
