@@ -12,13 +12,23 @@ const authController = async (req, res) => {
   if (existing) {
     bcrypt.compare(password, existing.password, (err, result) => {
       if (result) {
-        return res.status(200).send({
-          message: "로그인 성공",
-          resultCode: 200,
-          data: null,
-        });
+        jwt.sign(
+          { userId: userId },
+          "Hello!",
+          { expiresIn: 60 * 1000 * 10 },
+          function (err, token) {
+            res.status(200).json({
+              resultCode: 200,
+              data: {
+                userName: existing.userName,
+                userId: existing.userId,
+                token: token,
+              },
+            });
+          }
+        );
       } else {
-        return res.status(200).send({
+        return res.status(404).send({
           message: "로그인 실패",
           resultCode: 9999,
           data: null,
