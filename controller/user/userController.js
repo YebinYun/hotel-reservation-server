@@ -7,7 +7,7 @@ const userController = async (req, res) => {
       res.setHeader("Access-Control-Allow-origin", "*");
       res.setHeader("Access-Control-Allow-Credentials", "true");
 
-      res.status(200).send(`find successfully: ${user}`);
+      res.status(200).json(`find successfully: ${user}`);
     })
     .catch((err) => res.status(500).send(err));
 };

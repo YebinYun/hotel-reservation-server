@@ -37,7 +37,7 @@ app.use(
     saveUninitialized: true, // 세션에 저장할 내역이 없더라도 처음부터 세션을 생성할지 설정
     cookie: {
       //세션 쿠키 설정 (세션 관리 시 클라이언트에 보내는 쿠키)
-      maxAge: 3.6e6 * 24, // 24시간 뒤 만료(자동 삭제)
+      maxAge: 60 * 60 * 24, // 24시간 뒤 만료(자동 삭제)
     },
     name: "session-cookie", // 세션 쿠키명 디폴트값은 connect.sid이지만 다른 이름을 줄수도 있다.
   })

@@ -13,7 +13,6 @@ const userLikeController = async (req, res) => {
 
     .then((res) => {
       if (res) {
-        console.log("res", res);
         return res.status(200).send({
           message: "좋아요 클릭 성공",
           resultCode: 200,
