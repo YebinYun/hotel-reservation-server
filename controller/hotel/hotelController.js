@@ -11,8 +11,8 @@ const hotelController = async (req, res) => {
 
       const a = hotelDb
         .collection("listingsAndReviews")
-        .findOne({ _id })
-        .limit(10)
+        .findOne({ _id: "10006546" })
+        // .limit(10)
         .then((result) => {
           res.status(200).json({
             resultCode: 1000,
@@ -20,7 +20,7 @@ const hotelController = async (req, res) => {
           });
         })
         .catch((err) => {
-          console.log("============================================>", err);
+          console.log("=====>", err);
         });
     })
     .catch((err) => res.status(500).send(err));
