@@ -1,10 +1,17 @@
+require("dotenv").config();
+
 const mongoose = require("mongoose");
+const mongoUri2 = process.env.AIRBNB_URI;
+// const conn2 = mongoose.createConnection(mongoUri2);
+mongoose.connect(mongoUri2, {
+  useNewUrlParser: true,
+});
 
 const hotelSchema = new mongoose.Schema(
   {
     hotelName: String,
     hotelLocation: String,
-    likes: [mongoose.Types.ObjectId], // 요건 옵션.. ㅋ
+    likes: [mongoose.Types.ObjectId],
   },
   {
     timestamps: true,
@@ -12,8 +19,3 @@ const hotelSchema = new mongoose.Schema(
 );
 
 module.exports = mongoose.model("Hotel", hotelSchema);
-
-// 상품 Schema
-// 상품 Schema 안에
-// hearts 항목이 있어야 되고. Array로..
-// 그 Array에 userId를 넣음.
