@@ -20,7 +20,7 @@ app.use(express.static("public"));
 app.use(cors());
 app.use("/", router);
 
-connect(mongoUri2, {
+connect(mongoUri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

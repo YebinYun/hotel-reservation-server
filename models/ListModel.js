@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
-const { connectHotelDb } = require("../routes/dbSwitcher");
+// const { connectHotelDb } = require("../routes/dbSwitcher");
 
-const hotelInfo = mongoose.connection.useDb("example_airbnb");
+// const hotelInfo = mongoose.connection.useDb("example_airbnb");
 
 const listSchema = new mongoose.Schema(
   {
-    _id: mongoose.Types.ObjectId,
+    _id: String,
     listing_url: String,
     name: String,
     summary: String,
@@ -128,4 +128,4 @@ const listSchema = new mongoose.Schema(
   }
 );
 
-module.exports = hotelInfo.model("reviewsAndListings", listSchema);
+module.exports = mongoose.model("HotelList", listSchema);

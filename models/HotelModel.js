@@ -1,11 +1,11 @@
 require("dotenv").config();
 
 const mongoose = require("mongoose");
-const mongoUri2 = process.env.AIRBNB_URI;
+// const mongoUri2 = process.env.AIRBNB_URI;
 // const conn2 = mongoose.createConnection(mongoUri2);
-mongoose.connect(mongoUri2, {
-  useNewUrlParser: true,
-});
+// mongoose.connect(mongoUri2, {
+//   useNewUrlParser: true,
+// });
 
 const hotelSchema = new mongoose.Schema(
   {
