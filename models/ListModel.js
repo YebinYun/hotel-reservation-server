@@ -1,7 +1,4 @@
 const mongoose = require("mongoose");
-// const { connectHotelDb } = require("../routes/dbSwitcher");
-
-// const hotelInfo = mongoose.connection.useDb("example_airbnb");
 
 const listSchema = new mongoose.Schema(
   {
