@@ -42,7 +42,6 @@
 │       ├───userController.js
 │       └───userRegisterController.js
 │
-│
 ├───middleware
 │   └───authMiddleware.js
 │
