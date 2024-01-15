@@ -1,5 +1,4 @@
 const userModel = require("../../models/userModel");
-// const hotelList = require("../../controller/like/hotelList.json");
 
 const LikeController = async (req, res) => {
   const { userId, hotelId } = req.query;

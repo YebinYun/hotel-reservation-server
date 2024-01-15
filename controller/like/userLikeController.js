@@ -22,7 +22,7 @@ const userLikeController = async (req, res) => {
     })
     .catch((err) => {
       return res.status(200).send({
-        message: "좋아요 실패.",
+        message: "좋아요 클릭 취소.",
         resultCode: 9999,
         data: err,
       });
