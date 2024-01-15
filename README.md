@@ -50,7 +50,6 @@
 │   ├───HotelModel.js
 │   ├───likeModel.js
 │   ├───ListModel.js
-│   ├───sessionModel.js
 │   └───userModel.js
 │
 ├───routes
