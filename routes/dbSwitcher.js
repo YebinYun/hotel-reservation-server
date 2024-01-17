@@ -1,11 +1,11 @@
 require("dotenv").config();
 
 const mongoose = require("mongoose");
-const mongoUri2 = process.env.AIRBNB_URI;
+const mongoUri = process.env.MONGO_URI;
 
 const connectHotelDb = () => {
   try {
-    const hotelDb = mongoose.createConnection(mongoUri2, {
+    const hotelDb = mongoose.createConnection(mongoUri, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
     });

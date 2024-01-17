@@ -1,4 +1,3 @@
-const { json } = require("express");
 const ListModel = require("../../models/ListModel");
 const paging = require("./paging");
 
@@ -28,7 +27,6 @@ const hotelController = async (req, res) => {
       startPage: startPage,
       endPage: endPage,
     });
-    // res.status(200).json(totalPost);
   } catch {
     (err) => res.status(500).send(err);
   }

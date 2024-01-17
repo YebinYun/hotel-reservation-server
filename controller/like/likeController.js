@@ -16,7 +16,7 @@ const LikeController = async (req, res) => {
 
     await userData.save();
   } catch (error) {
-    return res.status(500).json({ message: "Internal Server Error" });
+    return res.status(500).json(error);
   }
 
   res.setHeader("Access-Control-Allow-Origin", "*");

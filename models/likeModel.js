@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const likeSchema = new mongoose.Schema(
   {
-    hotelId: { type: String, ref: "Hotel", require: true },
+    hotelId: { type: mongoose.Types.ObjectId, ref: "HotelList", require: true },
     userId: [{ type: mongoose.Types.ObjectId, ref: "User", require: true }],
   },
   {
