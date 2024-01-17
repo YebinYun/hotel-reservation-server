@@ -2,7 +2,7 @@ const userModel = require("../../models/userModel");
 
 const LikeController = async (req, res) => {
   const { userId, hotelId } = req.query;
-  const userData = await userModel.findOne({ _id: userId });
+  const userData = await userModel.findOne({ userId: userId });
 
   if (!userData) return res.status(404).json({ message: "No user" });
 
