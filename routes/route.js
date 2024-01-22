@@ -9,9 +9,9 @@ const userLikeController = require("../controller/like/userLikeController.js");
 const authMiddleware = require("../middleware/authMiddleware.js");
 const router = express.Router();
 
-router.get("/user", userController);
+router.get("/user", authMiddleware, userController);
 router.get("/hotelList", hotelController);
-router.post("/user", userRegisterController);
+router.post("/user", authMiddleware, userRegisterController);
 router.post("/login", loginController);
 router.get("/likes", LikeController);
 router.post("/likes", userLikeController);

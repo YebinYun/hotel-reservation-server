@@ -22,6 +22,7 @@ const loginController = async (req, res) => {
               data: {
                 userName: existing.userName,
                 userId: existing.userId,
+                likes: existing.likes,
                 token: token,
               },
             });
