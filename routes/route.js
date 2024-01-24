@@ -13,7 +13,7 @@ router.get("/user", authMiddleware, userController);
 router.get("/hotelList", hotelController);
 router.post("/user", authMiddleware, userRegisterController);
 router.post("/login", loginController);
-router.get("/likes", LikeController);
+router.get("/likes", authMiddleware, LikeController);
 router.post("/likes", userLikeController);
 
 module.exports = router;

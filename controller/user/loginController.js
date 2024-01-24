@@ -24,6 +24,7 @@ const loginController = async (req, res) => {
                 userId: existing.userId,
                 likes: existing.likes,
                 token: token,
+                password: null,
               },
             });
           }
