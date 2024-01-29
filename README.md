@@ -31,7 +31,7 @@
 ├───controller
 │   │
 │   ├───hotel
-│   │   └───hotelController.js
+│   │   └───hotelListController.js
 │   │
 │   ├───like
 │   │   ├───likeController.js

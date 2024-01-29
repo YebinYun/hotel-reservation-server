@@ -1,7 +1,7 @@
 const ListModel = require("../../models/ListModel");
 const paging = require("./paging");
 
-const hotelController = async (req, res) => {
+const hotelListController = async (req, res) => {
   const { page } = req.query;
   res.setHeader("Access-Control-Allow-origin", "*");
   res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -32,4 +32,4 @@ const hotelController = async (req, res) => {
   }
 };
 
-module.exports = hotelController;
+module.exports = hotelListController;
