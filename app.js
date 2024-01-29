@@ -3,6 +3,7 @@ require("dotenv").config(".env");
 const mongoUri = process.env.MONGO_URI;
 const Port = process.env.PORT;
 
+const https = require("https");
 const cors = require("cors");
 const express = require("express");
 const app = express();
@@ -25,7 +26,9 @@ connect(mongoUri, {
   .then(() => console.log("Successfully connected to mongodb"))
   .catch((e) => console.error(e));
 
-app.listen(Port, () => console.log(`Server listening on port ${Port}`));
+const server = https.createServer(app);
+
+server.listen(Port, () => console.log(`Server listening on port ${Port}`));
 
 app.get("/", (req, res) => {
   res.send(`Server listening on port ${Port}`);
