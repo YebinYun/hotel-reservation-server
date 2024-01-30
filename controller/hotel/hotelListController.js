@@ -14,10 +14,23 @@ const hotelListController = async (req, res) => {
     let { maxPost, currentPage, hidePost, totalPage, startPage, endPage } =
       paging(page, totalPost);
 
-    const post = await ListModel.find()
+    let query = {};
+
+    if (req.query.location !== "All") {
+      query = { property_type: req.query.location };
+    }
+
+    console.log(req.query);
+
+    const post = await ListModel.find(query)
       .sort({ createAt: -1 })
       .skip(hidePost)
       .limit(maxPost);
+
+    // post.filter((item) => {
+    //   console.log(item.property_type, item._id);
+    // });
+
     res.status(200).json({
       post: post,
       totalPost: totalPost,
