@@ -20,16 +20,10 @@ const hotelListController = async (req, res) => {
       query = { property_type: req.query.location };
     }
 
-    console.log(req.query);
-
     const post = await ListModel.find(query)
       .sort({ createAt: -1 })
       .skip(hidePost)
       .limit(maxPost);
-
-    // post.filter((item) => {
-    //   console.log(item.property_type, item._id);
-    // });
 
     res.status(200).json({
       post: post,

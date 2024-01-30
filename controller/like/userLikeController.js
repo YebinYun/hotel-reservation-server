@@ -4,7 +4,6 @@ const axios = require("axios");
 const userLikeController = async (req, res) => {
   const { hotelId, userId } = req.body;
 
-  console.log(req.body);
   axios.get(`/likes?userId=${userId}&hotelId=${hotelId}`);
 
   LikeModel.create({
