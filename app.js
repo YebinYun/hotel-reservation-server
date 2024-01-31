@@ -31,9 +31,12 @@ connect(mongoUri, {
   .then(() => console.log("Successfully connected to mongodb"))
   .catch((e) => console.error(e));
 
-https.createServer(options, app).listen(Port, () => {
+app.listen(Port, () => {
   console.log(`Server listening on port ${Port}`);
 });
+// https.createServer(options, app).listen(Port, () => {
+//   console.log(`Server listening on port ${Port}`);
+// });
 
 app.get("/", (req, res) => {
   res.send(`Server listening on port ${Port}`);
