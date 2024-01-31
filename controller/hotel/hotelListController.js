@@ -7,18 +7,18 @@ const hotelListController = async (req, res) => {
   res.setHeader("Access-Control-Allow-Credentials", "true");
 
   try {
-    const totalPost = await ListModel.countDocuments({});
-    if (!totalPost) {
-      throw Error();
-    }
-    let { maxPost, currentPage, hidePost, totalPage, startPage, endPage } =
-      paging(page, totalPost);
-
     let query = {};
 
     if (req.query.location !== "All") {
       query = { property_type: req.query.location };
     }
+
+    const totalPost = await ListModel.countDocuments(query);
+    if (!totalPost) {
+      throw Error();
+    }
+    let { maxPost, currentPage, hidePost, totalPage, startPage, endPage } =
+      paging(page, totalPost);
 
     const post = await ListModel.find(query)
       .sort({ createAt: -1 })
