@@ -6,9 +6,6 @@ const userRegisterController = async (req, res) => {
 
   // 아이디 공백 방지 (입력값 : 이름, 아이디, 비밀번호)
   if (!userName || !userId || !password) {
-    res.setHeader("Access-Control-Allow-origin", "*");
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-
     return res.status(200).send({
       resultCode: 9999,
       data: null,

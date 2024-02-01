@@ -34,10 +34,13 @@ connect(mongoUri, {
 app.listen(Port, () => {
   console.log(`Server listening on port ${Port}`);
 });
+
 // https.createServer(options, app).listen(Port, () => {
 //   console.log(`Server listening on port ${Port}`);
 // });
 
 app.get("/", (req, res) => {
+  res.setHeader("Access-Control-Allow-origin", "*");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
   res.send(`Server listening on port ${Port}`);
 });

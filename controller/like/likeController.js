@@ -20,9 +20,6 @@ const LikeController = async (req, res) => {
     return res.status(500).json(error);
   }
 
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-
   res.status(200).json({
     data: userData,
     message: `Successfully updated likes for user: ${userId}`,
