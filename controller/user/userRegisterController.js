@@ -1,6 +1,7 @@
 const UserModel = require("../../models/userModel");
 const bcrypt = require("bcrypt");
 
+// 회원가입 컨트롤러
 const userRegisterController = async (req, res) => {
   const { userName, userId, birthDay, email, password, phoneNumber } = req.body;
 
@@ -9,12 +10,12 @@ const userRegisterController = async (req, res) => {
     return res.status(200).send({
       resultCode: 9999,
       data: null,
-      message: "필수 입력값을 확인해주세요.",
+      message: "빈칸에 입력값을 확인해주세요.",
     });
   } else {
+    // 아이디 중복 방지 (이름, 비밀번호 : 중복 O / 아이디 : 중복 X)
     const existingUser = await UserModel.findOne({ userId: userId });
 
-    // 아이디 중복 방지 (이름, 비밀번호 : 중복 O / 아이디 : 중복 X)
     if (!existingUser) {
       try {
         const mySalt = 10;
@@ -40,7 +41,7 @@ const userRegisterController = async (req, res) => {
                 })
                 .catch((err) => {
                   return res.status(200).send({
-                    message: "저장중 에러 발생했습니다.",
+                    message: "가입 중 에러가 발생했습니다.",
                     resultCode: 9999,
                     data: err,
                   });
@@ -51,6 +52,7 @@ const userRegisterController = async (req, res) => {
       } catch (err) {
         throw new Error(err);
       }
+      // 유저아이디랑 동일한 아이디로 가입을 할 경우
     } else {
       res.status(200).send({
         message: "회원가입이 된 정보입니다.",
