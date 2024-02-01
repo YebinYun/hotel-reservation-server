@@ -1,10 +1,8 @@
-const ListModel = require("../../models/ListModel");
-const paging = require("./paging");
+const ListModel = require("../../models/ListModel.js");
+const pagination = require("./pagination.js");
 
-const hotelListController = async (req, res) => {
+const listController = async (req, res) => {
   const { page } = req.query;
-  res.setHeader("Access-Control-Allow-origin", "*");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
 
   try {
     let query = {};
@@ -18,7 +16,7 @@ const hotelListController = async (req, res) => {
       throw Error();
     }
     let { maxPost, currentPage, hidePost, totalPage, startPage, endPage } =
-      paging(page, totalPost);
+      pagination(page, totalPost);
 
     const post = await ListModel.find(query)
       .sort({ createAt: -1 })
@@ -39,4 +37,4 @@ const hotelListController = async (req, res) => {
   }
 };
 
-module.exports = hotelListController;
+module.exports = listController;
