@@ -1,6 +1,7 @@
 const ListModel = require("../../models/ListModel.js");
 const pagination = require("./pagination.js");
 
+// 필터에 정보(property_type)에 맞춰 페이지네이션을 작동하고 숙소 리스트를 보여주는 컨트롤러
 const listController = async (req, res) => {
   const { page } = req.query;
 

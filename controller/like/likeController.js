@@ -1,5 +1,6 @@
 const userModel = require("../../models/userModel");
 
+// 로그인한 유저에 데이터에서 좋아요 정보를 저장하는 컨트롤러
 const LikeController = async (req, res) => {
   const { userId, hotelId } = req.query;
   const userData = await userModel.findOne({ userId: userId });

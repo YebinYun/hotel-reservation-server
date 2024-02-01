@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-// Define Schemes
+
+// DB에 저장된 유저정보와 그 안에 좋아요 정보
 const userSchema = new mongoose.Schema(
   {
     userId: {

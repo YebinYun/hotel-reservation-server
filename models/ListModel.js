@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// DB에 저장된 숙소리스트 정보
 const listSchema = new mongoose.Schema(
   {
     _id: String,

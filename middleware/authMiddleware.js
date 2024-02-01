@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 
+// 토큰 확인 미들웨어
 module.exports = async (req, res, next) => {
   const token = req.headers.token;
   const verified = jwt.verify(token, "Hello!");
