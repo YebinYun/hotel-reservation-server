@@ -35,12 +35,11 @@
 ├───controller
 │   │
 │   ├───hotel
-│   │   ├───hotelListController.js
-│   │   └───paging.js
+│   │   ├───listController.js
+│   │   └───pagination.js
 │   │
 │   ├───like
-│   │   ├───likeController.js
-│   │   └───userLikeController.js
+│   │   └───likeController.js
 │   │
 │   └───user
 │       ├───loginController.js
@@ -51,8 +50,6 @@
 │   └───authMiddleware.js
 │
 ├───models
-│   ├───HotelModel.js
-│   ├───likeModel.js
 │   ├───ListModel.js
 │   └───userModel.js
 │
